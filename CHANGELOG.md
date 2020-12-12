@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/yeldirium/kaputt/compare/v1.1.1...v1.1.2) (2020-12-12)
+
+
+### Bug Fixes
+
+* Add dotKuro to contributors. ([51e7fc1](https://github.com/yeldirium/kaputt/commit/51e7fc13561df745007a2e4c3e8dbeed301e6695))
+
 ## [1.1.1](https://github.com/yeldirium/kaputt/compare/v1.1.0...v1.1.1) (2020-12-12)
 
 
