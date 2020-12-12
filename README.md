@@ -87,7 +87,7 @@ try {
 new TokenMalformed(undefined, { data: { foo: 'bar' }})
 ```
 
-## Customm error type-guards
+## Custom error type-guards
 
 Custom errors each contain a type guard. Use it like so:
 
@@ -95,7 +95,7 @@ Custom errors each contain a type guard. Use it like so:
 const error: TokenMalformed | TokenInvalid;
 
 if (error.is(TokenMalformed)) {
-  // error if now of type CustomError<'TokenMalformed'>.
+  // error is now of type CustomError<'TokenMalformed'>.
   // This is usually functionally equivalent to TokenMalformed, but has slight
   // differences if you e.g. define properties on the TokenMalformed class.
 }
