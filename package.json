@@ -1,21 +1,30 @@
 {
-  "name": "@yeldirium/ts-npm-package-template",
+  "name": "@yeldirium/kaputt",
   "version": "0.0.1",
-  "description": "A template for npm packages written in TypeScript.",
+  "description": "A custom error type and construction method that helps with error handling at compile time.",
   "author": {
     "name": "Hannes Leutloff",
     "email": "hannes.leutloff@yeldirium.de",
     "url": "https://yeldirium.de/"
   },
+  "contributors": [
+    {
+      "name": "Noah Hummel",
+      "email": "info@hummelit.de"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yeldirium/ts-npm-package-template.git"
+    "url": "git://github.com/yeldirium/kaputt.git"
   },
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "humanize-string": "2.1.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
