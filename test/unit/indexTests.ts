@@ -93,7 +93,7 @@ suite('error', (): void => {
       class TokenInvalid extends kaputt('TokenInvalid') {}
       class TokenExpired extends kaputt('TokenExpired') {}
 
-      const ex: TokenExpired | TokenInvalid = {} as any;
+      const ex: TokenExpired | TokenInvalid = new TokenInvalid();
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
       const assertIsTokenInvalid = function (ex2: TokenInvalid): void {};
