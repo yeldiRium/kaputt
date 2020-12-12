@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/yeldirium/kaputt/compare/v1.1.0...v1.1.1) (2020-12-12)
+
+
+### Bug Fixes
+
+* Some typos in the readme. ([e5ce418](https://github.com/yeldirium/kaputt/commit/e5ce418aaeff146a834ae97f9b9be63060448b24))
+
 # [1.1.0](https://github.com/yeldirium/kaputt/compare/v1.0.0...v1.1.0) (2020-12-12)
 
 
