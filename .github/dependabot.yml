@@ -1,0 +1,16 @@
+version: 1
+
+update_configs:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-type: direct
+    assignees:
+      - yeldiRium
+    labels:
+      - Dependencies
+    commit-message:
+      prefix: "fix"
+      prefix-development: "chore"

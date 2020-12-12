@@ -1,0 +1,5 @@
+# Node.js folders
+*node_modules/
+
+# Build artefacts
+*build/

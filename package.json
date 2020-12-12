@@ -1,0 +1,27 @@
+{
+  "name": "@yeldirium/ts-npm-package-template",
+  "version": "0.0.1",
+  "description": "A template for npm packages written in TypeScript.",
+  "author": {
+    "name": "Hannes Leutloff",
+    "email": "hannes.leutloff@yeldirium.de",
+    "url": "https://yeldirium.de/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yeldirium/ts-npm-package-template.git"
+  },
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/git": "9.0.0",
+    "assertthat": "5.2.1",
+    "roboter": "11.4.2",
+    "semantic-release": "17.3.0"
+  }
+}
