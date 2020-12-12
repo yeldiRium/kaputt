@@ -49,22 +49,22 @@ suite('error', (): void => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-    const fun = function (ex: CustomError): void {};
+    const assertIsCustomError = function (ex: CustomError): void {};
 
     const ex = new TokenInvalid();
 
-    fun(ex);
+    assertIsCustomError(ex);
   });
 
   test(`custom errors fulfil the 'Error' interface.`, async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-    const fun = function (ex: Error): void {};
+    const assertIsError = function (ex: Error): void {};
 
     const ex = new TokenInvalid();
 
-    fun(ex);
+    assertIsError(ex);
   });
 
   test(`custom errors can be used in exhaustive switch/case statements.`, async (): Promise<void> => {
@@ -72,19 +72,35 @@ suite('error', (): void => {
     class TokenExpired extends kaputt('TokenExpired') {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const fun = function (ex: TokenInvalid | TokenExpired): void {
-      switch (ex.name) {
-        case 'TokenExpired': {
-          break;
-        }
-        case 'TokenInvalid': {
-          break;
-        }
-        default: {
-          // This would not compile if the above cases were not exhaustive.
-          return {} as never;
-        }
+    const ex: TokenInvalid | TokenExpired = {} as any;
+
+    switch (ex.name) {
+      case 'TokenExpired': {
+        break;
       }
-    };
+      case 'TokenInvalid': {
+        break;
+      }
+      default: {
+        // This would not compile if the above cases were not exhaustive.
+        return {} as never;
+      }
+    }
+  });
+
+  suite('is', (): void => {
+    test('specifies the type of an error.', async (): Promise<void> => {
+      class TokenInvalid extends kaputt('TokenInvalid') {}
+      class TokenExpired extends kaputt('TokenExpired') {}
+
+      const ex: TokenExpired | TokenInvalid = {} as any;
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
+      const assertIsTokenInvalid = function (ex2: TokenInvalid): void {};
+
+      if (ex.is(TokenInvalid)) {
+        assertIsTokenInvalid(ex);
+      }
+    });
   });
 });

@@ -87,6 +87,20 @@ try {
 new TokenMalformed(undefined, { data: { foo: 'bar' }})
 ```
 
+## Customm error type-guards
+
+Custom errors each contain a type guard. Use it like so:
+
+```typescript
+const error: TokenMalformed | TokenInvalid;
+
+if (error.is(TokenMalformed)) {
+  // error if now of type CustomError<'TokenMalformed'>.
+  // This is usually functionally equivalent to TokenMalformed, but has slight
+  // differences if you e.g. define properties on the TokenMalformed class.
+}
+```
+
 ## Running the quality assurance
 
 To lint and test this package use [roboter](https://www.npmjs.com/package/roboter).
