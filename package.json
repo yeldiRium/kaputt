@@ -1,6 +1,6 @@
 {
   "name": "@yeldirium/kaputt",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "A custom error type and construction method that helps with error handling at compile time.",
   "author": {
     "name": "Hannes Leutloff",

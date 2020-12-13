@@ -1,3 +1,21 @@
+# [2.0.0](https://github.com/yeldirium/kaputt/compare/v1.1.2...v2.0.0) (2020-12-13)
+
+
+### Features
+
+* Move type guard to single function; Restructure library. ([e87e3cb](https://github.com/yeldirium/kaputt/commit/e87e3cbfbaf00d4e9deeeb4553eddcd02d06ca61))
+
+
+### BREAKING CHANGES
+
+* - The type guards are no longer attached to the ErrorConstructor or the
+Error type. This makes the errors plain objects with no functionality.
+- The type guards are combined in a single function that can check for
+CustomError or optionally any specific custom error type.
+- The library was restructured and individual parts broken into smaller
+files.
+- The tests have been improved.
+
 ## [1.1.2](https://github.com/yeldirium/kaputt/compare/v1.1.1...v1.1.2) (2020-12-12)
 
 
