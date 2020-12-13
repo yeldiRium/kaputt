@@ -2,8 +2,8 @@ import { assert } from 'assertthat';
 import humanizeString from 'humanize-string';
 import { CustomError, kaputt } from '../../lib';
 
-suite('error', (): void => {
-  test('custom errors have a default message.', async (): Promise<void> => {
+suite('kaputt', (): void => {
+  test('creates a custom error with a default message.', async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     const ex = new TokenInvalid();
@@ -11,7 +11,7 @@ suite('error', (): void => {
     assert.that(ex.message).is.equalTo(humanizeString('TokenInvalid'));
   });
 
-  test('custom errors have the correct name.', async (): Promise<void> => {
+  test('creates a custom error with a correct name.', async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     const ex = new TokenInvalid();
@@ -19,7 +19,7 @@ suite('error', (): void => {
     assert.that(ex.name).is.equalTo('TokenInvalid');
   });
 
-  test('custom errors can have a custom message.', async (): Promise<void> => {
+  test('creates a custom error with an optional custom message.', async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     const ex = new TokenInvalid('Token is not valid JSON');
@@ -27,7 +27,7 @@ suite('error', (): void => {
     assert.that(ex.message).is.equalTo('Token is not valid JSON');
   });
 
-  test('custom errors can have a cause.', async (): Promise<void> => {
+  test('creates a custom error with an optional cause.', async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     const cause: unknown = {};
@@ -36,7 +36,7 @@ suite('error', (): void => {
     assert.that(ex.cause).is.equalTo(cause);
   });
 
-  test('custom errors can have aditional data.', async (): Promise<void> => {
+  test('creates a custom error with optional additional data.', async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     const data = { foo: 'bar' };
@@ -45,7 +45,7 @@ suite('error', (): void => {
     assert.that(ex.data).is.equalTo(data);
   });
 
-  test(`custom errors fulfil the 'CustomError' interface.`, async (): Promise<void> => {
+  test(`creates a custom errors that fulfils the 'CustomError' interface.`, async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
@@ -56,7 +56,7 @@ suite('error', (): void => {
     assertIsCustomError(ex);
   });
 
-  test(`custom errors fulfil the 'Error' interface.`, async (): Promise<void> => {
+  test(`creates a custom error that fulfils the 'Error' interface.`, async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
@@ -67,7 +67,7 @@ suite('error', (): void => {
     assertIsError(ex);
   });
 
-  test(`custom errors can be used in exhaustive switch/case statements.`, async (): Promise<void> => {
+  test(`creates custom errors that can be used in exhaustive switch/case statements.`, async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
     class TokenExpired extends kaputt('TokenExpired') {}
 
@@ -86,21 +86,5 @@ suite('error', (): void => {
         return {} as never;
       }
     }
-  });
-
-  suite('is', (): void => {
-    test('specifies the type of an error.', async (): Promise<void> => {
-      class TokenInvalid extends kaputt('TokenInvalid') {}
-      class TokenExpired extends kaputt('TokenExpired') {}
-
-      const ex: TokenExpired | TokenInvalid = new TokenInvalid();
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
-      const assertIsTokenInvalid = function (ex2: TokenInvalid): void {};
-
-      if (ex.is(TokenInvalid)) {
-        assertIsTokenInvalid(ex);
-      }
-    });
   });
 });

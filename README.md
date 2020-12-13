@@ -89,12 +89,22 @@ new TokenMalformed(undefined, { data: { foo: 'bar' }})
 
 ## Custom error type-guards
 
-Custom errors each contain a type guard. Use it like so:
+Custom errors can be type-guarded using `isCustomError`. With only one parameter it specifies an errors type to `CustomError`:
+
+```typescript
+const error: unknown;
+
+if (isCustomError(error)) {
+  // error is now of type CustomError
+}
+```
+
+You can supply the specific custom error constructor you want to check for as the second parameter:
 
 ```typescript
 const error: TokenMalformed | TokenInvalid;
 
-if (error.is(TokenMalformed)) {
+if (isCustomError(error, TokenMalformed)) {
   // error is now of type CustomError<'TokenMalformed'>.
   // This is usually functionally equivalent to TokenMalformed, but has slight
   // differences if you e.g. define properties on the TokenMalformed class.
