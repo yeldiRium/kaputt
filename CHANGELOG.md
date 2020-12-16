@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/yeldirium/kaputt/compare/v2.0.0...v2.1.0) (2020-12-16)
+
+
+### Features
+
+* Extend Error to inherit stacktrace functionality. ([deb388e](https://github.com/yeldirium/kaputt/commit/deb388e3c282bc77709f8f3d704744ee6cc9812b))
+
 # [2.0.0](https://github.com/yeldirium/kaputt/compare/v1.1.2...v2.0.0) (2020-12-13)
 
 
