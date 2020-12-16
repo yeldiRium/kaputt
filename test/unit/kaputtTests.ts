@@ -67,6 +67,14 @@ suite('kaputt', (): void => {
     assertIsError(ex);
   });
 
+  test(`creates a customn error that contains a stack trace.`, async (): Promise<void> => {
+    class TokenInvalid extends kaputt('TokenInvalid') {}
+
+    const ex = new TokenInvalid();
+
+    assert.that(ex.stack).is.not.undefined();
+  });
+
   test(`creates custom errors that can be used in exhaustive switch/case statements.`, async (): Promise<void> => {
     class TokenInvalid extends kaputt('TokenInvalid') {}
     class TokenExpired extends kaputt('TokenExpired') {}

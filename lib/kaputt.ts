@@ -5,10 +5,8 @@ import humanizeString from 'humanize-string';
 const kaputt = function <TErrorName extends string>(
   errorName: TErrorName
 ): ErrorConstructor<TErrorName> {
-  return class implements CustomError<TErrorName> {
+  return class extends Error implements CustomError<TErrorName> {
     public name: TErrorName = errorName;
-
-    public message: string;
 
     public cause?: unknown;
 
@@ -21,7 +19,8 @@ const kaputt = function <TErrorName extends string>(
         data?: any;
       } = {}
     ) {
-      this.message = message ?? `${humanizeString(errorName)}`;
+      super(message ?? `${humanizeString(errorName)}`);
+
       this.cause = cause;
       this.data = data;
     }
