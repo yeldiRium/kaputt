@@ -1,5 +1,9 @@
 # kaputt
 
+**This package is no longer maintained. It is superseded by [defekt](https://github.com/thenativeweb/defekt).**
+
+---
+
 A custom error type and construction method that helps with error handling at compile time.
 
 This package is inspired by [defekt](https://github.com/thenativeweb/defekt) and improves upon it by making the type system aware of the differences between errors.
