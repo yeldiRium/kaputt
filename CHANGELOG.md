@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/yeldirium/kaputt/compare/v2.1.0...v2.1.1) (2021-03-25)
+
+
+### Bug Fixes
+
+* Deprecate package. ([9b7cf99](https://github.com/yeldirium/kaputt/commit/9b7cf995b2f44d4f9e337e7d900b78b158339790))
+
 # [2.1.0](https://github.com/yeldirium/kaputt/compare/v2.0.0...v2.1.0) (2020-12-16)
 
 
